@@ -10,9 +10,8 @@ A simple and powerful Chess game developed in Python. This project integrates th
 ## 🛠️ How to Run
 1. Ensure you have **Python** installed on your system.
 2. Download the `stockfish.exe` engine and place it in the same folder as the script.
-3. Run the game using the command:
-```bash
-   python My_chess.py
+3. Run the game using the command: `python My_chess.py`
+
 ## 🤝 Contributions
 If you find any bugs or have ideas for new features, feel free to fork the repository and submit a **Pull Request (PR)**!
 
