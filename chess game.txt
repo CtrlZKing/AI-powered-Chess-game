@@ -1,0 +1,54 @@
+import subprocess
+
+def talk(cmd, process):
+    process.stdin.write(cmd + "\n")
+    process.stdin.flush()
+
+def get_ai_move(process):
+    # Sends the 'go' command to Stockfish
+    talk("go movetime 1000", process)
+    while True:
+        line = process.stdout.readline().strip()
+        if line.startswith("bestmove"):
+            return line.split()[1]
+
+def start_game():
+    # Matches your specific file name
+    engine_path = "stockfish-windows-x86-64-avx2.exe" 
+    
+    try:
+        engine = subprocess.Popen(
+            engine_path,
+            universal_newlines=True,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            bufsize=1
+        )
+    except Exception as e:
+        print(f"ERROR: Cannot find {engine_path}. Make sure it is in the same folder!")
+        return
+
+    # Initialize the engine using UCI protocol[cite: 1]
+    talk("uci", engine)
+    talk("isready", engine)
+    
+    moves = []
+    print("GAME ON! Enter moves like 'e2e4'. Type 'quit' to stop.")
+
+    while True:
+        move = input("\nYour move: ")
+        if move.lower() == "quit": break
+        moves.append(move)
+
+        # Update the engine on the current board state[cite: 1]
+        talk("position startpos moves " + " ".join(moves), engine)
+        
+        print("Stockfish is thinking...")
+        ai_move = get_ai_move(engine)
+        moves.append(ai_move)
+        
+        print(f"Stockfish plays: {ai_move}")
+        print(f"Move History: {' '.join(moves)}")
+
+if __name__ == "__main__":
+    start_game()
