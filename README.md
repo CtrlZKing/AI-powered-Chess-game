@@ -13,3 +13,8 @@ A simple and powerful Chess game developed in Python. This project integrates th
 3. Run the game using the command:
 ```bash
    python My_chess.py
+## 🤝 Contributions
+If you find any bugs or have ideas for new features, feel free to fork the repository and submit a **Pull Request (PR)**!
+
+---
+*Developed by CtrlZKing*
