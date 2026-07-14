@@ -1,7 +1,7 @@
 # AI-powered-Chess-game
 
 A simple and powerful Chess game developed in Python. This project integrates the Stockfish engine, allowing you to play against a challenging AI!
-
+https://github.com/user-attachments/assets/4ba753af-1f83-4ac2-8c53-e04ca9892a35
 ## 🚀 Features
 - **AI Integration:** Powered by the Stockfish engine for a competitive chess experience.
 - **Python-based:** Built with clean and efficient Python logic.
